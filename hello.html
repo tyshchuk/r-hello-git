@@ -10,7 +10,6 @@
 
 
 
-<meta name="date" content="2025-04-05" />
 
 <title>Hello</title>
 
@@ -350,18 +349,48 @@ display: none;
 
 
 <h1 class="title toc-ignore">Hello</h1>
-<h4 class="date">2025-04-05</h4>
 
 </div>
 
 
+<pre class="r"><code>top &lt;- read_csv(&quot;imdb.csv&quot;)</code></pre>
+<pre><code>## Rows: 4500 Columns: 8
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (4): title, genres, director, cast
+## dbl (4): year, minutes, rating, votes
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>head(top)</code></pre>
+<pre><code>## # A tibble: 6 × 8
+##   title                         year minutes genres rating  votes director cast 
+##   &lt;chr&gt;                        &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;
+## 1 Star Wars: Episode V - The …  1980     124 Actio…    8.7 1.43e6 Irvin K… Mark…
+## 2 The Shining                   1980     146 Drama…    8.4 1.16e6 Stanley… Jack…
+## 3 Raging Bull                   1980     129 Biogr…    8.1 3.94e5 Martin … Robe…
+## 4 Airplane!                     1980      88 Comedy    7.7 2.72e5 Jim Abr… Robe…
+## 5 The Elephant Man              1980     124 Biogr…    8.2 2.71e5 David L… Anth…
+## 6 The Blues Brothers            1980     133 Adven…    7.9 2.21e5 John La… John…</code></pre>
+<pre class="r"><code>modern &lt;- top |&gt;
+  filter(year &gt;= 2000)
+head(modern)</code></pre>
+<pre><code>## # A tibble: 6 × 8
+##   title                year minutes genres          rating  votes director cast 
+##   &lt;chr&gt;               &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;
+## 1 Gladiator            2000     155 Action,Adventu…    8.5 1.75e6 Ridley … Russ…
+## 2 Memento              2000     113 Mystery,Thrill…    8.4 1.37e6 Christo… Guy …
+## 3 Snatch               2000     102 Comedy,Crime       8.2 9.42e5 Guy Rit… Jaso…
+## 4 Requiem for a Dream  2000     102 Drama              8.3 9.34e5 Darren … Elle…
+## 5 American Psycho      2000     102 Crime,Drama,Ho…    7.6 7.73e5 Mary Ha… Chri…
+## 6 X-Men                2000     104 Action,Adventu…    7.3 6.71e5 Bryan S… Patr…</code></pre>
 <pre class="r"><code>set.seed(42)
 xs &lt;- sample(1:250, 25)
 xs</code></pre>
 <pre><code>##  [1]  49 229  65 153  74 228 146 122 250 128  47  24  71 100  89 165 110  20 154
 ## [20] 114 111 131  41 236  27</code></pre>
-<pre class="r"><code>median(xs)</code></pre>
-<pre><code>## [1] 111</code></pre>
+<pre class="r"><code>me &lt;- median(xs)</code></pre>
+<p>Median is 111.</p>
 
 
 
