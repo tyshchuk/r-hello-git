@@ -1,0 +1,19 @@
+---
+title: "Hello"
+output: html_document
+date: "2025-04-05"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+set.seed(42)
+xs <- sample(1:250, 25)
+xs
+```
+
+```{r}
+median(xs)
+```
